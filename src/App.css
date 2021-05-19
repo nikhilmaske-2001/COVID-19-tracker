@@ -2,7 +2,7 @@
   margin: 0px;
 }
 
-.appContainer {
+.headerContainer {
   display: flex;
   justify-content: space-between;
 }
