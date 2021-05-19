@@ -9,7 +9,7 @@ import {
 
 function Dropdown() {
     const [countries, setCountries] = useState([]);
-    const [country, setInputCountry] = useState([]);
+    const [country, setInputCountry] = useState(['worldwide']);
 
     const onCountryChange = async (e) => {
         const countryCode = e.target.value;
