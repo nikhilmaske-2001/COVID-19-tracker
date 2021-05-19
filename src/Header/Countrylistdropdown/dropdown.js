@@ -1,5 +1,5 @@
-import React from 'react';
-import './dropdown.css';
+import React, { useEffect, useState } from 'react';
+import './Dropdown.css';
 
 import {
     FormControl,
@@ -7,16 +7,37 @@ import {
     MenuItem
 } from '@material-ui/core';
 
-function dropdown() {
+function Dropdown() {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        const getCountriesData = async () => {
+            fetch("https://api.caw.sh/v3/covid-19/countries")
+                .then((response) => response.json())
+                .then((data) => {
+                    const countries = data.map((country) => ({
+                        name: country.country,
+                    }));
+                    setCountries(countries);
+                });
+        };
+
+        getCountriesData();
+    }, []);
+
     return (
         <div className="dropdownContainer">
-            <FormControl variant="filled">
+            <FormControl>
                 <Select>
-                    <MenuItem>Ten</MenuItem>
+                    {
+                        countries.map((country) => (
+                            <MenuItem>{country.name}</MenuItem>
+                        ))
+                    }
                 </Select>
             </FormControl>
         </div>
     );
 };
 
-export default dropdown;
+export default Dropdown;
