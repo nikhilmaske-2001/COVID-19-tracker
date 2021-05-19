@@ -11,9 +11,9 @@ function App() {
         <CountryList />
       </div>
       <div className="infoboxContainer">
-        <InfoBox />
-        <InfoBox />
-        <InfoBox />
+        <InfoBox title="CoronaVirus Cases" cases={2000} total={123344} />
+        <InfoBox title="Recovered" cases={200} total={12334} />
+        <InfoBox title="Deaths" cases={20} total={1233} />
       </div>
     </div>
   );
