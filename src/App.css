@@ -6,6 +6,16 @@ body {
   background-color: rgb(245, 245, 245);
 }
 
+.appContainer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.leftSide {
+  /* leftside should take 90% of the space */
+  flex: 0.9;
+}
 .headerContainer {
   display: flex;
   justify-content: space-between;
@@ -15,4 +25,10 @@ body {
 .infoboxContainer {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 990px) {
+  .appContainer {
+    flex-direction: column;
+  }
 }
