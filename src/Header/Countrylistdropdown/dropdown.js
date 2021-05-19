@@ -9,6 +9,13 @@ import {
 
 function Dropdown() {
     const [countries, setCountries] = useState([]);
+    const [country, setInputCountry] = useState([]);
+
+    const onCountryChange = async (e) => {
+        const countryCode = e.target.value;
+
+        setInputCountry(countryCode);
+    };
 
     useEffect(() => {
         const getCountriesData = async () => {
@@ -17,6 +24,7 @@ function Dropdown() {
                 .then((data) => {
                     const countries = data.map((country) => ({
                         name: country.country,
+                        value: country.countryInfo.iso2,
                     }));
                     setCountries(countries);
                 });
@@ -28,10 +36,15 @@ function Dropdown() {
     return (
         <div className="dropdownContainer">
             <FormControl>
-                <Select>
+                <Select
+                    varient="outlined"
+                    value={country}
+                    onChange={onCountryChange}
+                >
+                    <MenuItem value="worldwide">Worldwide</MenuItem>
                     {
                         countries.map((country) => (
-                            <MenuItem>{country.name}</MenuItem>
+                            <MenuItem value={country.value}>{country.name}</MenuItem>
                         ))
                     }
                 </Select>
