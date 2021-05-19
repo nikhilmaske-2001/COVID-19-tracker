@@ -2,9 +2,14 @@
   margin: 0px;
 }
 
+body {
+  background-color: rgb(245, 245, 245);
+}
+
 .headerContainer {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .infoboxContainer {
