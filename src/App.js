@@ -1,6 +1,6 @@
 import './App.css';
 import Covidlabel from '../src/Header/Covidlabel/Covidlabel';
-import CountryList from '../src/Header/Countrylistdropdown/Dropdown';
+import CountryList from '../src/Header/Countrylistdropdown/dropdown';
 import InfoBox from './InfoBox/InfoBox';
 import Map from './Map/Map';
 import Chart from './RightChart/Chart';
