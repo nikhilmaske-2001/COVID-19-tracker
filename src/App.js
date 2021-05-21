@@ -18,22 +18,7 @@ function App() {
   const [country, setInputCountry] = useState(['worldwide']);
   const [countryInfo, setCountryInfo] = useState({});
 
-  const onCountryChange = async (e) => {
-    const countryCode = e.target.value;
 
-    const url = 'worldwide'
-      ? 'https://disease.sh/v3/covid-19/all'
-      : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
-
-    await fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setInputCountry(countryCode);
-        setCountryInfo(data);
-      })
-
-    setInputCountry(countryCode);
-  };
 
   useEffect(() => {
     fetch('https://api.caw.sh/v3/covid-19/all')
@@ -58,6 +43,23 @@ function App() {
 
     getCountriesData();
   }, []);
+
+  const onCountryChange = async (e) => {
+    const countryCode = e.target.value;
+
+    const url = 'worldwide'
+      ? 'https://disease.sh/v3/covid-19/all'
+      : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setInputCountry(countryCode);
+        setCountryInfo(data);
+      })
+
+    setInputCountry(countryCode);
+  };
 
 
   return (
