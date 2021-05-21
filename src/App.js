@@ -4,12 +4,13 @@ import './App.css';
 import Covidlabel from '../src/Header/Covidlabel/Covidlabel';
 import InfoBox from './InfoBox/InfoBox';
 import Map from './Map/Map';
-import Chart from './RightChart/Chart';
 
 import {
   FormControl,
   Select,
-  MenuItem
+  MenuItem,
+  Card,
+  CardContent
 } from '@material-ui/core';
 
 
@@ -95,7 +96,13 @@ function App() {
       </div>
 
       <div className="rightSide">
-        <Chart />
+        <Card>
+          <CardContent>
+            <h3>Live Cases by Worldwide</h3>
+
+            <h3>Worldwide new cases</h3>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
