@@ -4,13 +4,14 @@ import './App.css';
 import Covidlabel from '../src/Header/Covidlabel/Covidlabel';
 import InfoBox from './InfoBox/InfoBox';
 import Map from './Map/Map';
+import Table from '../src/Table/Table';
 
 import {
   FormControl,
   Select,
   MenuItem,
   Card,
-  CardContent
+  CardContent,
 } from '@material-ui/core';
 
 
@@ -18,6 +19,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [country, setInputCountry] = useState(['worldwide']);
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
 
 
@@ -38,6 +40,8 @@ function App() {
             name: country.country,
             value: country.countryInfo.iso2,
           }));
+
+          setTableData(data);
           setCountries(countries);
         });
     };
@@ -99,7 +103,7 @@ function App() {
         <Card>
           <CardContent>
             <h3>Live Cases by Worldwide</h3>
-
+            <Table countries={tableData} />
             <h3>Worldwide new cases</h3>
           </CardContent>
         </Card>
