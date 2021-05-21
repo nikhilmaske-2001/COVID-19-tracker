@@ -47,7 +47,7 @@ function App() {
   const onCountryChange = async (e) => {
     const countryCode = e.target.value;
 
-    const url = 'worldwide'
+    const url = countryCode === 'worldwide'
       ? 'https://disease.sh/v3/covid-19/all'
       : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
@@ -85,7 +85,7 @@ function App() {
           </div>
         </div>
         <div className="infoboxContainer">
-          <InfoBox title="CoronaVirus Cases" cases={countryInfo.todayCases} total={countryInfo.total} />
+          <InfoBox title="CoronaVirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
           <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
